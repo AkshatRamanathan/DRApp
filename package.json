@@ -1,0 +1,17 @@
+{
+  "name": "dynamicrenderingapplication",
+  "version": "1.0.0",
+  "description": "Dynamic Rendering Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:front": "cd frontend/ && npm run dev",
+    "start:back": "cd backend/ && npm start",
+    "start": "concurrently \"npm run start:front\" \"npm run start:back\""
+  },
+  "author": "AkshatRamanathan",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
