@@ -1,0 +1,31 @@
+{
+    "renderList": [
+      {
+        "id": "username",
+        "name": "username",
+        "type": "label"
+      },
+      {
+        "id": "username",
+        "name": "username",
+        "type": "input"
+      },
+      {
+        "id": "password",
+        "name": "password",
+        "type": "label"
+      },
+      {
+        "id": "password",
+        "name": "password",
+        "type": "input"
+      },
+      {
+        "id": "submit",
+        "name": "submit",
+        "type": "button",
+        "action": "submit"
+      }
+    ],
+    "data": []
+  }

@@ -1,0 +1,51 @@
+{
+    "renderList": [
+        {
+            "id": "username",
+            "name": "username",
+            "type": "label"
+        },
+        {
+            "id": "username",
+            "name": "username",
+            "type": "input"
+        },
+        {
+            "id": "email",
+            "name": "email",
+            "type": "label"
+        },
+        {
+            "id": "email",
+            "name": "email",
+            "type": "input"
+        },
+        {
+            "id": "password",
+            "name": "password",
+            "type": "label"
+        },
+        {
+            "id": "password",
+            "name": "password",
+            "type": "input"
+        },
+        {
+            "id": "confirm",
+            "name": "confirm",
+            "type": "label"
+        },
+        {
+            "id": "confirm",
+            "name": "confirm",
+            "type": "input"
+        },
+        {
+            "id": "submit",
+            "name": "submit",
+            "type": "button",
+            "action": "submit"
+        }
+    ],
+    "data": []
+}
