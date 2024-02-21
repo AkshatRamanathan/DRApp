@@ -8,7 +8,8 @@
       {
         "id": "username",
         "name": "username",
-        "type": "input"
+        "type": "input",
+        "input": "text"
       },
       {
         "id": "password",
@@ -18,7 +19,8 @@
       {
         "id": "password",
         "name": "password",
-        "type": "input"
+        "type": "input",
+        "input": "password"
       },
       {
         "id": "submit",
@@ -27,5 +29,10 @@
         "action": "submit"
       }
     ],
-    "data": []
+    "data": {
+      "submit": {
+        "method": "POST",
+        "action": "/api/login"
+      }
+    }
   }

@@ -8,7 +8,8 @@
         {
             "id": "username",
             "name": "username",
-            "type": "input"
+            "type": "input",
+            "input": "text"
         },
         {
             "id": "email",
@@ -18,7 +19,19 @@
         {
             "id": "email",
             "name": "email",
-            "type": "input"
+            "type": "input",
+            "input": "email"
+        },
+        {
+            "id": "confirm",
+            "name": "confirm email",
+            "type": "label"
+        },
+        {
+            "id": "confirm",
+            "name": "confirm email",
+            "type": "input",
+            "input": "email"
         },
         {
             "id": "password",
@@ -28,17 +41,8 @@
         {
             "id": "password",
             "name": "password",
-            "type": "input"
-        },
-        {
-            "id": "confirm",
-            "name": "confirm",
-            "type": "label"
-        },
-        {
-            "id": "confirm",
-            "name": "confirm",
-            "type": "input"
+            "type": "input",
+            "input": "password"
         },
         {
             "id": "submit",
@@ -47,5 +51,10 @@
             "action": "submit"
         }
     ],
-    "data": []
+    "data": {
+        "submit": {
+            "method": "POST",
+            "action": "/api/login"
+        }
+    }
 }

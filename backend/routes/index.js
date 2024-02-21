@@ -13,9 +13,21 @@ router.get('/login', function (req, res, next) {
   res.json(loginJSON);
 });
 
+/* POST login page. */
+router.post('/login', function (req, res, next) {
+  console.log(req.body);
+  res.json({ message: "received!" });
+});
+
 /* GET register page. */
 router.get('/register', function (req, res, next) {
   res.json(registerJSON);
+});
+
+/* POST register page. */
+router.post('/register', function (req, res, next) {
+  console.log(req.body);
+  res.json({ message: "received!" });
 });
 
 

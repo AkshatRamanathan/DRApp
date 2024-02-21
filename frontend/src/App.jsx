@@ -11,16 +11,20 @@ function App() {
 
   return (
     <>
-      <NavBar />
-      <RenderService>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </BrowserRouter >
-      </RenderService>
+      <header>
+        <NavBar />
+      </header>
+      <main>
+        <RenderService>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </BrowserRouter>
+        </RenderService>
+      </main>
     </>
   )
 }

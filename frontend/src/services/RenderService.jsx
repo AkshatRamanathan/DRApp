@@ -20,11 +20,11 @@ export default function RenderService({ children }) {
 
 
     return (
-        <>
-            {/* <div>Design - {JSON.stringify(design)}</div> */}
-            <DesignContext.Provider value={{ design, setDesign }}>
+        <DesignContext.Provider value={{ design, data }}>
+            <br />
+            <div className="d-flex justify-content-center">
                 {children}
-            </DesignContext.Provider>
-        </>
+            </div>
+        </DesignContext.Provider>
     )
 }
