@@ -54,7 +54,7 @@
     "data": {
         "submit": {
             "method": "POST",
-            "action": "/api/login"
+            "action": "/api/register"
         }
     }
 }

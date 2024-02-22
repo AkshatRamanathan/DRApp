@@ -16,7 +16,7 @@ router.get('/login', function (req, res, next) {
 /* POST login page. */
 router.post('/login', function (req, res, next) {
   console.log(req.body);
-  res.json({ message: "received!" });
+  res.redirect('/dashboard')
 });
 
 /* GET register page. */
@@ -26,8 +26,7 @@ router.get('/register', function (req, res, next) {
 
 /* POST register page. */
 router.post('/register', function (req, res, next) {
-  console.log(req.body);
-  res.json({ message: "received!" });
+  res.redirect('/login')
 });
 
 

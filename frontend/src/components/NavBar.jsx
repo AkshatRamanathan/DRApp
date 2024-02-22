@@ -7,7 +7,7 @@ export default function NavBar() {
     return (
         <Navbar bg="dark" data-bs-theme="dark">
             <Container>
-                <Navbar.Brand href="/">DRApp</Navbar.Brand>
+                <Navbar.Brand href="/"><img src='/favicons/favicon-32x32.png' alt='DRApp' /></Navbar.Brand>
                 <Nav className="justify-content-end">
                     <Nav.Link href="login">Login</Nav.Link>
                     <Nav.Link href="register">Register</Nav.Link>
