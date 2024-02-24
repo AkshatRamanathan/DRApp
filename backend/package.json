@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "DEBUG=backend:* node ./bin/www",
-    "start": "nodemon  --env-file=.env ./bin/www"
+    "start": "nodemon  --env-file=.env --ignore './sessions/*' ./bin/www"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

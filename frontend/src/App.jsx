@@ -23,12 +23,9 @@ function App() {
             </Routes>
           </BrowserRouter>
         </RenderService>
-      </main>
+      </main >
     </>
   )
 }
 
 export default App
-
-
-//       </RenderService><CardWrap />

@@ -20,7 +20,10 @@ async function post(req, res) {
         // Verify password
         const isPasswordValid = await user.comparePassword(password);
         if (!isPasswordValid) throw "Invalid Credentials, Incorrect Username or Password";
-        // Successful login
+        // Successful login, add to session
+        user.password = undefined;
+        req.session.user = user;
+        console.log("logged in as:", user)
         return res.redirect('/dashboard')
     } catch (error) {
         console.error('Error logging in user:', error);
