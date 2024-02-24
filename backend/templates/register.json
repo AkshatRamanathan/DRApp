@@ -55,6 +55,7 @@
         "submit": {
             "method": "POST",
             "action": "/api/register"
-        }
+        },
+        "info": null
     }
 }

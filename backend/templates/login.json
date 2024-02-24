@@ -33,6 +33,7 @@
       "submit": {
         "method": "POST",
         "action": "/api/login"
-      }
+      },
+      "info": null
     }
   }

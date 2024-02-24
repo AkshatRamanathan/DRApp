@@ -1,33 +1,21 @@
 var express = require('express');
 var router = express.Router();
-var loginJSON = require('../templates/login.json');
-var registerJSON = require('../templates/register.json');
+var User = require('../models/User');
+var indexController = require('../controllers/indexController')
+var loginController = require('../controllers/loginController')
+var registerController = require('../controllers/registerController')
 
-/* GET test page. */
-router.get('/', function (req, res, next) {
-  res.json({ message: 'index', title: 'Express' });
-});
+/* GET index page. */
+router.get('/', indexController.get);
 
-/* GET login page. */
-router.get('/login', function (req, res, next) {
-  res.json(loginJSON);
-});
+/* GET/POST login page. */
+router.get('/login', loginController.get);
+router.post('/login', loginController.post);
 
-/* POST login page. */
-router.post('/login', function (req, res, next) {
-  console.log(req.body);
-  res.redirect('/dashboard')
-});
+/* GET/POST register page. */
+router.get('/register', registerController.get);
 
-/* GET register page. */
-router.get('/register', function (req, res, next) {
-  res.json(registerJSON);
-});
-
-/* POST register page. */
-router.post('/register', function (req, res, next) {
-  res.redirect('/login')
-});
+router.post('/register', registerController.post);
 
 
 module.exports = router;

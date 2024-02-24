@@ -1,0 +1,13 @@
+{
+    "renderList": [],
+    "data": {
+      "title": "Dynamically Rendered Blog Application",
+      "content": "A simple Tech blog with an architecture more mind blowing than its contents!",
+      "login": {
+        "href": "/login"
+      },
+      "register": {
+        "href": "/register"
+      }
+    }
+  }
