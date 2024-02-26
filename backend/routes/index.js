@@ -12,6 +12,7 @@ router.get('/', indexController.get);
 /* GET/POST login page. */
 router.get('/login', loginController.get);
 router.post('/login', loginController.post);
+router.get('/logout', loginController.logout);
 
 /* GET/POST register page. */
 router.get('/register', registerController.get);
