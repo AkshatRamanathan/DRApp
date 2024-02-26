@@ -8,23 +8,24 @@ import Dashboard from "./routes/Dashboard";
 
 function App() {
   return (
-    <>
-      <header>
-        <NavBar />
-      </header>
-      <main>
-        <RenderService>
-          <BrowserRouter>
+    <BrowserRouter>
+      <RenderService>
+        <header>
+          <NavBar />
+        </header>
+        <main>
+          <br />
+          <div className="d-flex justify-content-center">
             <Routes>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/" element={<Home />} />
             </Routes>
-          </BrowserRouter>
-        </RenderService>
-      </main >
-    </>
+          </div>
+        </main >
+      </RenderService >
+    </BrowserRouter>
   )
 }
 

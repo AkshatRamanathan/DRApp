@@ -12,6 +12,11 @@ export default function RenderService({ children }) {
         const fetchData = async () => {
             const response = await fetch(`/api${path}`);
             const pageJSON = await response.json();
+            if (!response.ok) {
+                if (response.status === 401) {
+                    window.location.href = pageJSON.data.redirect
+                }
+            }
             setDesign(pageJSON.renderList ? pageJSON.renderList : {});
             setData(pageJSON.data ? pageJSON.data : {});
         }
@@ -21,10 +26,7 @@ export default function RenderService({ children }) {
 
     return (
         <DesignContext.Provider value={{ design, data }}>
-            <br />
-            <div className="d-flex justify-content-center">
-                {children}
-            </div>
+            {children}
         </DesignContext.Provider>
     )
 }
