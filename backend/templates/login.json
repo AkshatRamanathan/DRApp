@@ -1,7 +1,7 @@
 {
     "renderList": [
       {
-        "id": "username",
+        "id": "username-label",
         "name": "username",
         "type": "label"
       },
@@ -12,7 +12,7 @@
         "input": "text"
       },
       {
-        "id": "password",
+        "id": "password-label",
         "name": "password",
         "type": "label"
       },

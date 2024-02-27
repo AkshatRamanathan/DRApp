@@ -1,4 +1,5 @@
 var loginJSON = require('../templates/login.json');
+var profileJSON = require('../templates/profile.json');
 var User = require('../models/User');
 
 /* GET login page. */
@@ -7,6 +8,18 @@ function get(req, res,) {
     if (user) return res.status(401).json({ data: { redirect: "/dashboard" } })
     loginJSON.data.info = req.session.info || null;
     res.json(loginJSON);
+};
+
+/* GET profile page. */
+function getProfile(req, res) {
+    const { user } = req.session;
+    profileJSON.data.user = user;
+    for (let item of profileJSON.renderList) {
+        if (item.type === 'input') {
+            item.name = user[item.name] || item.name;
+        }
+    }
+    res.json(profileJSON);
 };
 
 /* GET logout action. */
@@ -39,4 +52,4 @@ async function post(req, res) {
 };
 
 
-module.exports = { get, post, logout };
+module.exports = { get, post, logout, getProfile };

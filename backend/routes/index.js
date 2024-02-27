@@ -13,6 +13,7 @@ router.get('/', indexController.get);
 router.get('/login', loginController.get);
 router.post('/login', loginController.post);
 router.get('/logout', loginController.logout);
+router.get('/profile', loginController.getProfile);
 
 /* GET/POST register page. */
 router.get('/register', registerController.get);

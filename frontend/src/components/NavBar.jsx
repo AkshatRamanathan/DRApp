@@ -15,7 +15,7 @@ export default function NavBar() {
                         (data?.user) ?
                             <>
                                 <Nav.Link href="api/logout">Logout</Nav.Link>
-                                <Nav.Link href="register">Profile</Nav.Link>
+                                <Nav.Link href="profile">Profile</Nav.Link>
                             </>
                             :
                             <>

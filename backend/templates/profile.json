@@ -23,24 +23,24 @@
             "input": "email"
         },
         {
-            "id": "confirm-label",
-            "name": "confirm email",
-            "type": "label"
-        },
-        {
-            "id": "confirm",
-            "name": "confirm email",
-            "type": "input",
-            "input": "email"
-        },
-        {
             "id": "password-label",
-            "name": "password",
+            "name": "new password",
             "type": "label"
         },
         {
             "id": "password",
-            "name": "password",
+            "name": "",
+            "type": "input",
+            "input": "password"
+        },
+        {
+            "id": "confirm-label",
+            "name": "confirm new password",
+            "type": "label"
+        },
+        {
+            "id": "confirm",
+            "name": "",
             "type": "input",
             "input": "password"
         },
@@ -48,13 +48,13 @@
             "id": "submit",
             "name": "submit",
             "type": "button",
-            "action": "submit"
+            "action": "update"
         }
     ],
     "data": {
         "submit": {
             "method": "POST",
-            "action": "/api/register"
+            "action": "/api/profile"
         },
         "info": null
     }

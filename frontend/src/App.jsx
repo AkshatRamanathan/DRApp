@@ -5,6 +5,7 @@ import Register from "./routes/Register";
 import Home from "./routes/Home";
 import NavBar from "./components/NavBar";
 import Dashboard from "./routes/Dashboard";
+import Profile from "./routes/Profile";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <br />
           <div className="d-flex justify-content-center">
             <Routes>
+              <Route path="/profile" element={<Profile />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
