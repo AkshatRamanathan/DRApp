@@ -5,6 +5,7 @@ var loginController = require('../controllers/loginController')
 var registerController = require('../controllers/registerController')
 var dashboardController = require('../controllers/dashboardController')
 var profileController = require('../controllers/profileController')
+var postController = require('../controllers/postController')
 
 /* GET index page. */
 router.get('/', indexController.get);
@@ -24,5 +25,10 @@ router.post('/register', registerController.post);
 
 /* GET dashboard page. */
 router.get('/dashboard/*', dashboardController.get);
+
+/* All posts page. */
+router.get('/posts/create', postController.create);
+router.post('/posts/create', postController.post);
+router.get('/posts/all', postController.getByUser);
 
 module.exports = router;

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { BlogPostSchema } = require('./BlogPost');
-const bcrypt= require('bcrypt');
+const bcrypt = require('bcrypt');
 // Define User Schema
 const userSchema = new mongoose.Schema({
     username: {
@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    posts: [BlogPostSchema], // Array of posts (assuming postSchema is defined)
+    posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'BlogPost' }], // Array of posts (assuming postSchema is defined)
     role: {
         type: String,
         enum: ['admin', 'user'],

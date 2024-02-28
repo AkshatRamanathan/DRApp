@@ -2,15 +2,21 @@
     "renderList": [
         {
             "id": "1",
-            "name": "Feed",
+            "name": "My Feed",
             "type": "nav",
             "href": "/dashboard/feed"
         },
         {
             "id": "2",
-            "name": "Posts",
+            "name": "My posts",
             "type": "nav",
             "href": "/dashboard/posts"
+        },
+        {
+            "id": "3",
+            "name": "Create Post",
+            "type": "nav",
+            "href": "/dashboard/create"
         }
     ],
     "data": {

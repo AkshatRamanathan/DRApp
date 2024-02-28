@@ -1,0 +1,29 @@
+{
+    "renderList": [
+        {
+            "id": "title",
+            "name": "Enter title here",
+            "type": "input",
+            "input": "text"
+        },
+        {
+            "id": "content",
+            "name": "Enter content here",
+            "type": "textarea",
+            "input": "textarea"
+        },
+        {
+            "id": "submit",
+            "name": "submit",
+            "type": "button",
+            "action": "submit"
+        }
+    ],
+    "data": {
+        "submit": {
+            "method": "POST",
+            "action": "/api/posts/create"
+        },
+        "info": null
+    }
+}
