@@ -9,7 +9,8 @@
             "id": "username",
             "name": "username",
             "type": "input",
-            "input": "text"
+            "input": "text",
+            "disabled": true
         },
         {
             "id": "email-label",
@@ -20,7 +21,8 @@
             "id": "email",
             "name": "email",
             "type": "input",
-            "input": "email"
+            "input": "email",
+            "disabled": true
         },
         {
             "id": "password-label",

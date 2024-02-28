@@ -1,0 +1,20 @@
+{
+    "renderList": [
+        {
+            "id": "1",
+            "name": "Feed",
+            "type": "nav",
+            "href": "/dashboard/feed"
+        },
+        {
+            "id": "2",
+            "name": "Posts",
+            "type": "nav",
+            "href": "/dashboard/posts"
+        }
+    ],
+    "data": {
+        "info": null,
+        "user": null
+    }
+}

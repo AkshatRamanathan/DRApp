@@ -1,26 +1,15 @@
 var loginJSON = require('../templates/login.json');
-var profileJSON = require('../templates/profile.json');
 var User = require('../models/User');
 
 /* GET login page. */
 function get(req, res,) {
     const { user } = req.session;
-    if (user) return res.status(401).json({ data: { redirect: "/dashboard" } })
+    if (user) return res.status(401).json({ data: { redirect: "/dashboard/" } })
     loginJSON.data.info = req.session.info || null;
     res.json(loginJSON);
 };
 
-/* GET profile page. */
-function getProfile(req, res) {
-    const { user } = req.session;
-    profileJSON.data.user = user;
-    for (let item of profileJSON.renderList) {
-        if (item.type === 'input') {
-            item.name = user[item.name] || item.name;
-        }
-    }
-    res.json(profileJSON);
-};
+
 
 /* GET logout action. */
 function logout(req, res) {
@@ -44,7 +33,8 @@ async function post(req, res) {
         // Successful login, add to session
         user.password = undefined;
         req.session.user = user;
-        return res.redirect('/dashboard')
+        req.session.info = null
+        return res.redirect('/dashboard/')
     } catch (error) {
         req.session.info = { type: 'danger', message: error }
         return res.redirect('/login');
@@ -52,4 +42,4 @@ async function post(req, res) {
 };
 
 
-module.exports = { get, post, logout, getProfile };
+module.exports = { get, post, logout };

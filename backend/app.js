@@ -22,7 +22,7 @@ app.use(session({
     path: './sessions',
     ttl: 5 * 60 * 1000, //5 mins
     retries: 2
-  }), 
+  }),
   cookie: {
     secure: false,
     maxAge: 3600000
