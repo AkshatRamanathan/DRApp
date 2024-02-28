@@ -9,13 +9,14 @@ export default function NavBar() {
     return (
         <Navbar bg="dark" data-bs-theme="dark">
             <Container>
-                <Navbar.Brand href="/"><img src='/favicons/favicon-32x32.png' alt='DRApp' /></Navbar.Brand>
+                <Navbar.Brand href="/"><img height="32" width="32" src='/favicons/favicon-32x32.png' alt='DRApp' /></Navbar.Brand>
                 <Nav className="justify-content-end">
                     {
                         (data?.user) ?
                             <>
-                                <Nav.Link href="api/logout">Logout</Nav.Link>
-                                <Nav.Link href="profile">Profile</Nav.Link>
+                                <Nav.Link href="/dashboard/">Dashboard</Nav.Link>
+                                <Nav.Link href="/api/logout">Logout</Nav.Link>
+                                <Nav.Link href="/profile">Profile</Nav.Link>
                             </>
                             :
                             <>

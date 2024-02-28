@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Card from 'react-bootstrap/Card';
 import { DesignContext } from '../services/Contexts';
 import Form from 'react-bootstrap/Form';
+import Alert from 'react-bootstrap/Alert';
 import Mapper from '../services/MapperService';
 
 export default function Profile() {
@@ -11,6 +12,7 @@ export default function Profile() {
         <Card style={{ width: '34rem' }}>
             <Card.Header as="h4">Profile</Card.Header>
             <Card.Body>
+            {data?.info && <Alert key={data?.info?.type} variant={data?.info?.type}>{data?.info?.message}<br /></Alert>}
                 <Form action={data?.submit?.action} method={data?.submit?.method}>
                     <Form.Group className="mb-3" controlId="loginForm">
                         {
