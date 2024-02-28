@@ -7,6 +7,8 @@ import { DesignContext } from '../services/Contexts';
 import Mapper from '../services/MapperService';
 import { Route, Routes } from 'react-router-dom';
 import Feed from '../components/Feed';
+import PostsTable from '../components/PostsTable';
+import CreatePost from '../components/CreatePost';
 
 export default function Dashboard() {
     const { data, design } = useContext(DesignContext);
@@ -28,11 +30,10 @@ export default function Dashboard() {
             <Row>
                 <Col lg="2">
                     <Card style={{ height: "550px" }}>
-                        <Card.Header>Options</Card.Header>
+                        <Card.Header>My Options</Card.Header>
                         <Card.Body>
                             {
                                 design && design.map(element => Mapper(element))
-
                             }
                         </Card.Body>
                     </Card>
@@ -40,13 +41,14 @@ export default function Dashboard() {
                 <Col>
                     <Routes>
                         <Route path='/feed' element={<Feed user={user} />} />
-                        <Route path='/posts' Component={null} />
+                        <Route path='/create' element={<CreatePost user={user} />} />
+                        <Route path='/posts' element={<PostsTable user={user} />} />
                         <Route path='/' Component={null} />
 
                     </Routes>
 
                 </Col>
             </Row>
-        </Container>
+        </Container >
     )
 }
