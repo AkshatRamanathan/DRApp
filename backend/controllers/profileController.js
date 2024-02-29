@@ -17,7 +17,6 @@ function get(req, res) {
 
 /* POST profile page. */
 async function post(req, res) {
-    console.log(req.body);
     const { email, confirm, password } = req.body;
     if (!confirm || !password || password !== confirm) {
         req.session.info = { type: 'warning', message: "Invalid Details, Please try again" }

@@ -9,6 +9,25 @@ import { Route, Routes } from 'react-router-dom';
 import Feed from '../components/Feed';
 import PostsTable from '../components/PostsTable';
 import CreatePost from '../components/CreatePost';
+import Post from '../components/Post';
+import Util from '../components/Util';
+
+function ToolsPanel() {
+    return (
+        <Container>
+            <Row>
+                <Col>
+                    <Util util="Total Likes" />
+                </Col>
+                <Col>
+                    <Util util="Total Posts" />
+                </Col>
+            </Row>
+            <br />
+            <Util util="Total Followers" />
+        </Container>
+    )
+}
 
 export default function Dashboard() {
     const { data, design } = useContext(DesignContext);
@@ -43,7 +62,8 @@ export default function Dashboard() {
                         <Route path='/feed' element={<Feed user={user} />} />
                         <Route path='/create' element={<CreatePost user={user} />} />
                         <Route path='/posts' element={<PostsTable user={user} />} />
-                        <Route path='/' Component={null} />
+                        <Route path='/post/:id' element={<Post />} />
+                        <Route path='/' element={<ToolsPanel />} />
 
                     </Routes>
 

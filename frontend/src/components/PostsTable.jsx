@@ -15,11 +15,17 @@ export default function PostsTable({ user }) {
         console.log(posts)
     }, [user]);
 
-    const handleDelete = (e) => {
+    const handleDelete = async (e, post) => {
+        e.stopPropagation();
+        const resp = await fetch(`/api/posts/delete/${post._id}`, { method: 'DELETE' });
+        const json = await resp.json()
+        window.location.href = json?.data?.redirect;
 
     }
-    
-    const handleEdit = (e) => {
+
+    const handleEdit = async (e, post) => {
+        e.stopPropagation();
+        window.location.href = `post/${post._id}`
 
     }
     return (
@@ -37,10 +43,10 @@ export default function PostsTable({ user }) {
                     <tbody>
                         {
                             posts.map((post, idx) => {
-                                return <tr key={idx}>
+                                return <tr onClick={() => { location.href = `post/${post._id}` }} key={idx}>
                                     <td>{post.title}</td>
                                     <td>{post.likeCount}</td>
-                                    <td><i onClick={handleDelete} className="btn btn-primary bi bi-trash3"></i>&nbsp;<i onClick={handleEdit} className="btn  btn-primary bi bi-pencil-square"></i></td>
+                                    <td><i onClick={(e) => { handleDelete(e, post) }} className="btn btn-primary bi bi-trash3"></i>&nbsp;<i onClick={(e) => { handleEdit(e, post) }} className="btn  btn-primary bi bi-pencil-square"></i></td>
                                 </tr>
                             })
                         }

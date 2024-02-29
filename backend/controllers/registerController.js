@@ -10,7 +10,6 @@ function get(req, res) {
 
 /* POST register page. */
 async function post(req, res) {
-    console.log(req.body);
     const { username, email, confirm, password } = req.body;
     if (email !== confirm) {
         req.session.info = { type: 'warning', message: "Invalid Details, Please try again" }
