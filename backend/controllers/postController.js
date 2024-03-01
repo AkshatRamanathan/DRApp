@@ -14,7 +14,12 @@ async function getByUser(req, res) {
 }
 
 async function edit(req, res) {
-
+    //save edited id
+    const { id } = req.params;
+    const { title, content } = req.body;
+    if (!title || !content) return res.redirect(`/dashboard/post/${id}?enable=true`);
+    await BlogPost.findByIdAndUpdate(id, req.body);
+    return res.redirect("/dashboard/posts")
 }
 
 async function get(req, res) {
@@ -29,6 +34,9 @@ async function get(req, res) {
         if (item.id === 'content') {
             item.name = post.content;
             item.disabled = true;
+        }
+        if (item.type === 'button') {
+            item.display = "none";
         }
     }
     res.json(pageJson);

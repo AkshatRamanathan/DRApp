@@ -27,7 +27,7 @@ router.post('/register', registerController.post);
 router.get('/dashboard/*', dashboardController.get);
 
 /* All posts page. */
-router.get('/post/edit/:id', postController.edit);
+router.post('/post/edit/:id', postController.edit);
 router.get('/post/:id', postController.get);
 router.get('/posts/create', postController.create);
 router.post('/posts/create', postController.post);

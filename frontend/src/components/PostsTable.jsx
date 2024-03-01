@@ -25,7 +25,7 @@ export default function PostsTable({ user }) {
 
     const handleEdit = async (e, post) => {
         e.stopPropagation();
-        window.location.href = `post/${post._id}`
+        window.location.href = `post/${post._id}?enable=true`
 
     }
     return (
