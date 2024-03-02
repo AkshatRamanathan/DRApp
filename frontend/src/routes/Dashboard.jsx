@@ -59,6 +59,7 @@ export default function Dashboard() {
                 </Col>
                 <Col>
                     <Routes>
+                        {/* <Route path='/table/:entityType' element={<Table />} /> make table generic for Posttable or usertable*/}
                         <Route path='/feed' element={<Feed user={user} />} />
                         <Route path='/create' element={<CreatePost user={user} />} />
                         <Route path='/posts' element={<PostsTable user={user} />} />

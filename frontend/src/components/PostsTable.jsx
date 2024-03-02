@@ -12,7 +12,6 @@ export default function PostsTable({ user }) {
             setPosts(posts);
         }
         fetchPosts();
-        console.log(posts)
     }, [user]);
 
     const handleDelete = async (e, post) => {
