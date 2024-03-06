@@ -4,7 +4,7 @@ const ADMIN_OPTIONS = {
     "id": "4",
     "name": "Users",
     "type": "nav",
-    "href": "/dashboard/users"
+    "href": "/dashboard/table/users"
 };
 
 /* GET dashboard page. */

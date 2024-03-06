@@ -17,9 +17,9 @@ async function edit(req, res) {
     //save edited id
     const { id } = req.params;
     const { title, content } = req.body;
-    if (!title || !content) return res.redirect(`/dashboard/post/${id}?enable=true`);
+    if (!title || !content) return res.redirect(`/dashboard/posts/${id}?enable=true`);
     await BlogPost.findByIdAndUpdate(id, req.body);
-    return res.redirect("/dashboard/posts")
+    return res.redirect("/dashboard/table/posts")
 }
 
 async function get(req, res) {
@@ -45,7 +45,7 @@ async function get(req, res) {
 async function deletePost(req, res) {
     const { id } = req.params;
     await BlogPost.deleteOne({ _id: id });
-    return res.json({ data: { redirect: "/dashboard/posts" } });
+    return res.json({ data: { redirect: "/dashboard/table/posts" } });
 }
 async function post(req, res) {
     const { title, content } = req.body;
@@ -56,7 +56,7 @@ async function post(req, res) {
     const owner = await User.findById(user._id);
     owner.posts.push(newBlog._id);
     await owner.save();
-    return res.redirect("/dashboard/posts")
+    return res.redirect("/dashboard/table/posts")
 }
 
 module.exports = { get, create, post, getByUser, deletePost, edit }

@@ -10,7 +10,7 @@
             "id": "2",
             "name": "My posts",
             "type": "nav",
-            "href": "/dashboard/posts"
+            "href": "/dashboard/table/posts"
         },
         {
             "id": "3",
