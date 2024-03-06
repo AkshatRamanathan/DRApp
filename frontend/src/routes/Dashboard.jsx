@@ -7,7 +7,7 @@ import { DesignContext } from '../services/Contexts';
 import Mapper from '../services/MapperService';
 import { Route, Routes } from 'react-router-dom';
 import Feed from '../components/Feed';
-import PostsTable from '../components/PostsTable';
+import Table from '../components/Table';
 import CreatePost from '../components/CreatePost';
 import Post from '../components/Post';
 import Util from '../components/Util';
@@ -59,11 +59,10 @@ export default function Dashboard() {
                 </Col>
                 <Col>
                     <Routes>
-                        {/* <Route path='/table/:entityType' element={<Table />} /> make table generic for Posttable or usertable*/}
                         <Route path='/feed' element={<Feed user={user} />} />
                         <Route path='/create' element={<CreatePost user={user} />} />
-                        <Route path='/posts' element={<PostsTable user={user} />} />
-                        <Route path='/post/:id' element={<Post />} />
+                        <Route path='/table/:entityType' element={<Table />} />
+                        <Route path='/posts/:id' element={<Post />} />
                         <Route path='/' element={<ToolsPanel />} />
 
                     </Routes>
