@@ -37,7 +37,7 @@ export default function Table() {
         <Card style={{ height: "550px" }}>
             <Card.Header>My {entityType?.toString().toUpperCase()}</Card.Header>
             <Card.Body>
-                <BTable striped bordered hover>
+                <BTable  variant='light' bordered hover>
                     <thead>
                         <tr>
                             {data?.columns?.map((col) => { return <th>{col.toUpperCase()}</th> })}
