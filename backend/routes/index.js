@@ -6,6 +6,7 @@ var registerController = require('../controllers/registerController')
 var dashboardController = require('../controllers/dashboardController')
 var profileController = require('../controllers/profileController')
 var postController = require('../controllers/postController')
+var userController = require('../controllers/userController')
 
 /* GET index page. */
 router.get('/', indexController.get);
@@ -33,5 +34,9 @@ router.get('/posts/create', postController.create);
 router.post('/posts/create', postController.post);
 router.get('/posts/all', postController.getByUser);
 router.delete('/posts/delete/:id', postController.deletePost);
+
+/* All users page. */
+router.get('/users/all', userController.get);
+router.delete('/users/delete/:id', userController.delete);
 
 module.exports = router;

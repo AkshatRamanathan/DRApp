@@ -8,8 +8,13 @@ function create(req, res) {
 
 async function getByUser(req, res) {
     const { user } = req.session;
-    let userPosts = await BlogPost.find({ author: user._id });
-    return res.json(userPosts);
+    let userPosts = await BlogPost.find({ author: user._id },{__v: 0, author: 0, content: 0}).lean();
+    // wrap into a object, with columds and controlActions and data itself
+    const responseData = {
+        data: [...userPosts],
+        columns: Array.from(Object.keys(userPosts[0]))
+    }
+    return res.json(responseData);
 
 }
 
