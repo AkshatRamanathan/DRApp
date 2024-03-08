@@ -18,6 +18,7 @@ const userSchema = new mongoose.Schema({
         unique: true
     },
     posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'BlogPost' }], // Array of posts (assuming postSchema is defined)
+    follows: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }], // Array of users they follow
     role: {
         type: String,
         enum: ['admin', 'user'],

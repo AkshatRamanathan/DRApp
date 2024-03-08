@@ -6,9 +6,9 @@ function create(req, res) {
     res.json(CreatePostJOSN)
 }
 
-async function getByUser(req, res) {
+async function getSelfPosts(req, res) {
     const { user } = req.session;
-    let userPosts = await BlogPost.find({ author: user._id },{__v: 0, author: 0, content: 0}).lean();
+    let userPosts = await BlogPost.find({ author: user._id }, { __v: 0, author: 0, content: 0 }).lean();
     // wrap into a object, with columds and controlActions and data itself
     const responseData = {
         data: [...userPosts],
@@ -16,6 +16,15 @@ async function getByUser(req, res) {
     }
     return res.json(responseData);
 
+}
+
+async function getFeed(req, res) {
+    const { user } = req.session;
+    const follow_ids = user.follows.map(follow => follow);
+    // Find all posts authored by the users the current user follows
+    const feedPosts = await BlogPost.find({ author: { $in: follow_ids } });
+    console.log(feedPosts.length)
+    res.json(feedPosts);
 }
 
 async function edit(req, res) {
@@ -64,4 +73,4 @@ async function post(req, res) {
     return res.redirect("/dashboard/table/posts")
 }
 
-module.exports = { get, create, post, getByUser, deletePost, edit }
+module.exports = { get, create, post, getSelfPosts, deletePost, edit, getFeed }

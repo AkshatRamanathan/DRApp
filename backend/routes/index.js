@@ -32,7 +32,8 @@ router.post('/post/edit/:id', postController.edit);
 router.get('/post/:id', postController.get);
 router.get('/posts/create', postController.create);
 router.post('/posts/create', postController.post);
-router.get('/posts/all', postController.getByUser);
+router.get('/posts/all', postController.getSelfPosts);
+router.get('/posts/feed', postController.getFeed);
 router.delete('/posts/delete/:id', postController.deletePost);
 
 /* All users page. */
