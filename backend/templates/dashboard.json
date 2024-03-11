@@ -17,6 +17,12 @@
             "name": "Create Post",
             "type": "nav",
             "href": "/dashboard/create"
+        },
+        {
+            "id": "4",
+            "name": "Search",
+            "type": "nav",
+            "href": "/dashboard/table/search"
         }
     ],
     "data": {

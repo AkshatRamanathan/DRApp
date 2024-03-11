@@ -12,7 +12,7 @@ import CreatePost from '../components/CreatePost';
 import Post from '../components/Post';
 import Util from '../components/Util';
 
-function ToolsPanel() {
+function ToolsPanel({ user }) {
     return (
         <Container>
             <Row>
@@ -63,7 +63,7 @@ export default function Dashboard() {
                         <Route path='/create' element={<CreatePost user={user} />} />
                         <Route path='/table/:entityType' element={<Table />} />
                         <Route path='/posts/:id' element={<Post />} />
-                        <Route path='/' element={<ToolsPanel />} />
+                        <Route path='/' element={<ToolsPanel user={user} />} />
 
                     </Routes>
 

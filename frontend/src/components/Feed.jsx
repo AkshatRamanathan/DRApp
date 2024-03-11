@@ -8,6 +8,13 @@ export default function Feed({ user }) {
 
     const [data, setData] = useState();
 
+    const handleLike = async (e) => {
+        e.target.classList = "bi bi-heart-fill";
+        const item = data.find(item => item._id === e.target.id)
+        item.likeCount += 1;
+        setData([...data]);
+        await fetch(`/api/post/like/${e.target.id}`);
+    }
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch(`/api/posts/feed`);
@@ -15,21 +22,26 @@ export default function Feed({ user }) {
             setData(newData);
         }
         fetchData();
-        console.log(data)
     }, [user]);
 
     return (
-        <Container style={{ height: "550px" }}>
-            <h2>My FEED</h2><hr />
-            <Row style={{ overflow: 'scroll' }}>
+        <Container style={{ height: "550px", overflow: 'scroll' }}>
+            <h2>MY FEED</h2><hr />
+            <Row>
                 {data?.map((item) =>
                     <Col>
-                        <Card style={{ height: '15rem', width: "320px" }}>
-                            <Card.Header as="h5">{item.title}</Card.Header>
-                            <Card.Body>
+                        <Card style={{ height: '22rem', width: "320px" }}>
+                            <Card.Header as="h5">
+                                <Card.Title>{item.title}</Card.Title>
+                            </Card.Header>
+                            <Card.Body style={{ overflow: 'scroll' }}>
                                 {item.content}
                             </Card.Body>
-                            <Card.Footer><i class="bi bi-heart p-2"></i>{item.likeCount}</Card.Footer>
+                            <Card.Footer style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                <i id={item._id} onClick={handleLike} className="bi bi-heart"></i>
+                                {item.likeCount}
+                                <Card.Text>{item.author.substr(-5)+"..."}</Card.Text>
+                            </Card.Footer>
                         </Card>
                         <br />
                     </Col>

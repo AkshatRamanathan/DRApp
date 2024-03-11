@@ -20,10 +20,8 @@ async function getSelfPosts(req, res) {
 
 async function getFeed(req, res) {
     const { user } = req.session;
-    const follow_ids = user.follows.map(follow => follow);
     // Find all posts authored by the users the current user follows
-    const feedPosts = await BlogPost.find({ author: { $in: follow_ids } });
-    console.log(feedPosts.length)
+    const feedPosts = await BlogPost.find({ author: { $in: user.follows } });
     res.json(feedPosts);
 }
 
@@ -73,4 +71,11 @@ async function post(req, res) {
     return res.redirect("/dashboard/table/posts")
 }
 
-module.exports = { get, create, post, getSelfPosts, deletePost, edit, getFeed }
+async function likePost(req, res) {
+    const { id } = req.params;
+    const post = await BlogPost.findById(id);
+    post.likeCount += 1;
+    await post.save();
+}
+
+module.exports = { get, create, post, getSelfPosts, deletePost, edit, getFeed, likePost }
