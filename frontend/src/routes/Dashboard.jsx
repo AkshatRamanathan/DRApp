@@ -17,14 +17,14 @@ function ToolsPanel({ user }) {
         <Container>
             <Row>
                 <Col>
-                    <Util util="Total Likes" />
+                    <Util user={user} util="Total Likes" />
                 </Col>
                 <Col>
-                    <Util util="Total Posts" />
+                    <Util user={user} util="Total Posts" />
                 </Col>
             </Row>
             <br />
-            <Util util="Total Followers" />
+            <Util user={user} util="Total Followers" />
         </Container>
     )
 }
