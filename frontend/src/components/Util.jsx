@@ -6,7 +6,7 @@ export default function Util({ user, util }) {
 
   return (
     <Card style={{ height: '16.4rem' }}>
-      <Card.Header as="h5">{util}</Card.Header>
+      <Card.Header className="text-center" as="h5">{util}</Card.Header>
       <Card.Body style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {
           (util && util === 'Total Likes') ? <h1><Badge>L</Badge></h1> :

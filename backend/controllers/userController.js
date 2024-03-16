@@ -33,15 +33,27 @@ async function deleteUser(req, res) {
     return res.json({ data: { redirect: "/dashboard/table/users" } });
 }
 
-async function followUser(req, res) {
+async function toggleFollowUser(req, res) {
     const { username } = req.params;
     const { user } = req.session;
     const dbUser = await User.findById(user._id);
     User.findOne({ username: username }).then(toFollow => {
-        dbUser.follows.push(toFollow._id);
+        // Iterate over dbUsers.follows array
+        let found = false;
+        dbUser.follows.forEach((follow, index) => {
+            // Check if the _id of the current follow matches toFollow._id
+            if (follow._id.equals(toFollow._id)) {
+                // If match found, remove it from dbUser.follows list
+                found = true;
+                dbUser.follows.splice(index, 1);
+            }
+        });
+
+        // If match not found, add toFollow._id to dbUser.follows array
+        if (!found) dbUser.follows.push(toFollow._id);
         dbUser.save();
     })
     return res.json({ data: { redirect: "/dashboard/feed" } });
 }
 
-module.exports = { get, delete: deleteUser, getSearch, followUser }
+module.exports = { get, delete: deleteUser, getSearch, toggleFollowUser }

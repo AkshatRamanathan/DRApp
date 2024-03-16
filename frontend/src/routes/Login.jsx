@@ -10,7 +10,7 @@ export default function Login() {
 
   return (
     <Card style={{ width: '34rem' }}>
-      <Card.Header as="h4">Login</Card.Header>
+      <Card.Header className="text-center" as="h4">Login</Card.Header>
       <Card.Body>
         {data?.info && <Alert key={data?.info?.type} variant={data?.info?.type}>{data?.info?.message}<br /></Alert>}
         <Form action={data?.submit?.action} method={data?.submit?.method}>

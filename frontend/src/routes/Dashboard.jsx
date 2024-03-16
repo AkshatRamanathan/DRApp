@@ -49,7 +49,7 @@ export default function Dashboard() {
             <Row>
                 <Col lg="2">
                     <Card style={{ height: "550px" }}>
-                        <Card.Header>My Options</Card.Header>
+                        <Card.Header className="text-center">My Options</Card.Header>
                         <Card.Body>
                             {
                                 design && design.map(element => Mapper(element))

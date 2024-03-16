@@ -40,7 +40,7 @@ router.delete('/posts/delete/:id', postController.deletePost);
 /* All users page. */
 router.get('/users/all', userController.get);
 router.get('/search/all', userController.getSearch);
-router.get('/search/follow/:username', userController.followUser);
+router.get('/search/follow/:username', userController.toggleFollowUser);
 router.delete('/users/delete/:id', userController.delete);
 
 module.exports = router;

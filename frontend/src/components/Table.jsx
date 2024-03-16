@@ -3,6 +3,12 @@ import React, { useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card';
 import BTable from 'react-bootstrap/Table';
 import { useParams } from 'react-router-dom';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 export default function Table() {
     const { entityType } = useParams();
@@ -19,6 +25,15 @@ export default function Table() {
         }
         fetchData();
     }, []);
+
+    const handleSearch = async (e) => {
+        const searchTerm = event.target.value.toLowerCase();
+        const filtered = data?.data?.filter(item => {
+            const firstKey = Object.keys(item)[0]; // Assuming the first key is the one you want to filter on
+            return item[firstKey].toLowerCase().includes(searchTerm);
+        });
+        setData({ columns: data.columns, data: filtered });
+    }
 
     const handleDelete = async (e, dataItem) => {
         e.stopPropagation();
@@ -45,6 +60,22 @@ export default function Table() {
         <Card style={{ height: "550px" }}>
             <Card.Header>My {entityType?.toString().toUpperCase()}</Card.Header>
             <Card.Body>
+                {
+                    entityType === 'search' ?
+                        <Container className='d-flex justify-content-end'>
+                            <Row className='w-50'><Col className='p-2'>
+                                <InputGroup onChange={handleSearch}>
+                                    <Form.Control
+                                        placeholder="Enter to search..." />
+                                    <Button variant="outline-primary">
+                                        <i className="bi bi-search"></i>
+                                    </Button>
+                                </InputGroup>
+                            </Col>
+                            </Row>
+                        </Container>
+                        : null
+                }
                 <BTable variant='light' bordered hover>
                     <thead>
                         <tr>
@@ -70,6 +101,6 @@ export default function Table() {
                     </tbody>
                 </BTable>
             </Card.Body>
-        </Card>
+        </Card >
     )
 }
